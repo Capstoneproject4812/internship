@@ -4,7 +4,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:ipvp/palette.dart';
 import '../widgets/widgets.dart';
+
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import 'Teacher-page.dart';
 
 class LoginPage extends StatelessWidget {
   @override
@@ -35,7 +38,7 @@ class LoginPage extends StatelessWidget {
                       children: [
                         TextInput(
                           icon: FontAwesomeIcons.solidEnvelope,
-                          hint: 'VPT Email ID',
+                          hint: 'Email ID',
                           inputType: TextInputType.emailAddress,
                           inputAction: TextInputAction.next,
                         ),
@@ -46,9 +49,41 @@ class LoginPage extends StatelessWidget {
                         ),
                         Text(
                           'Forgot Password',
-                          style: BodyText,
+                          style: TextStyle(
+                            fontSize: 19,
+                            color: Colors.white,
+                            decoration: TextDecoration.underline,
+                          ),
                         ),
                       ],
+                    ),
+                  ),
+                  SizedBox(height: 40.0),
+                  Container(
+                    height: 40.0,
+                    width: 100.0,
+                    child: Material(
+                      borderRadius: BorderRadius.circular(20.0),
+                      shadowColor: Colors.greenAccent,
+                      color: Colors.green,
+                      elevation: 1.0,
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => SideBarLayout()),
+                          );
+                        },
+                        child: Center(
+                          child: Text(
+                            'LOGIN',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'Montserrat'),
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                   Column(
@@ -56,28 +91,14 @@ class LoginPage extends StatelessWidget {
                       SizedBox(
                         height: 100,
                       ),
-                      RoundedButton(
-                        buttonText: 'Sign up',
-                      ),
-                      SizedBox(
-                        height: 80,
-                      ),
                       Container(
                         decoration: BoxDecoration(
                           border: Border(
                             bottom: BorderSide(
-                              color: Colors.white,
                               width: 1,
                             ),
                           ),
                         ),
-                        child: Text(
-                          'Sign up',
-                          style: BodyText,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 30,
                       ),
                     ],
                   ),
@@ -91,32 +112,7 @@ class LoginPage extends StatelessWidget {
   }
 }
 
-class RoundedButton extends StatelessWidget {
-  const RoundedButton({
-    Key key,
-    @required this.buttonText,
-  }) : super(key: key);
-final String buttonText;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.green,
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: FlatButton(
-        onPressed: (){},
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical:16.0),
-          child: Text(
-            'Login',
-            style: BodyText,
-          ),
-        ),
-      ),
-    );
-  }
-}
+
 
 class TextInput extends StatelessWidget {
   const TextInput({
