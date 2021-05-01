@@ -1,8 +1,9 @@
 import 'dart:async';
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ipvp/bloc/navigation_bloc/Navigations.dart';
+import 'package:ipvp/screens/login-page.dart';
+import 'package:wiredash/wiredash.dart';
 import '../screens/menu-item.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -58,43 +59,36 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
         top: 0,
         bottom: 0,
         left: isSideBarOpenedAsync.data ? 0 : -screenWidth,
-        right: isSideBarOpenedAsync.data ? 0 : screenWidth - 45,
+        right: isSideBarOpenedAsync.data ? 0 : screenWidth - 36.5,
         child: Row(
           children: <Widget>[
             Expanded(
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                color: const Color(0xFF4CAF50),
+                color: Colors.blue[900],
                 child: Column(
                   children: <Widget>[
                     SizedBox(height: 100,),
                     ListTile(
                         title: Text(
-                          "Akshat",
+                          "IPVP",
                           style:
-                          TextStyle(color: Colors.white,
-                              fontSize: 30,
+                          TextStyle(color: Colors.yellow,
+                              fontSize: 60,
                               fontWeight: FontWeight.w800),
                         ),
                       subtitle: Text(
-                        "akshat.ovalekar@vpt.edu.in",
+                        "Companies - at your fingertips!",
                         style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
+                          color: Colors.yellow,
+                          fontSize: 30,
                         ),
                         ),
-                      leading: CircleAvatar(
-                        child: Icon(
-                          Icons.perm_identity,
-                          color: Colors.lightGreenAccent,
-                        ),
-                        radius: 40,
-                      ),
                       ),
                     Divider(
                       height: 64,
                       thickness: 0.5,
-                      color: Colors.black.withOpacity(0.3),
+                      color: Colors.white.withOpacity(0.3),
                       indent: 32,
                       endIndent: 32,
                     ),
@@ -108,18 +102,10 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                     ),
                     MenuItem(
                       icon: Icons.home,
-                      title: "Home",
+                      title: "Student List",
                       onTap: () {
                         onIconPressed();
-                        BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.HomePageClickedEvent);
-                      },
-                    ),
-                    MenuItem(
-                      icon: Icons.work_sharp,
-                      title: "Company",
-                      onTap: () {
-                        onIconPressed();
-                        BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.CompanyClickedEvent);
+                        BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.StudentsClickedEvent);
                       },
                     ),
                     MenuItem(
@@ -132,7 +118,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                     ),
                     MenuItem(
                       icon: Icons.receipt_long_rounded,
-                      title: "Review your Report",
+                      title: "Review Report",
                       onTap: () {
                         onIconPressed();
                         BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.ReviewReportClickedEvent);
@@ -141,7 +127,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                     Divider(
                       height: 64,
                       thickness: 0.5,
-                      color: Colors.black.withOpacity(0.3),
+                      color: Colors.white.withOpacity(0.3),
                       indent: 32,
                       endIndent: 32,
                     ),
@@ -150,7 +136,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                       title: "Help & Feedback",
                       onTap: () {
                         onIconPressed();
-                        BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.FeedbackClickedEvent);
+                        Wiredash.of(context).show();
                       },
                     ),
                 MenuItem(
@@ -158,7 +144,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                   title: "Logout",
                   onTap: () {
                     onIconPressed();
-                    BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.HomePageClickedEvent);
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
                   },
                 ),
                   ],
@@ -166,7 +152,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
               ),
             ),
             Align(
-              alignment: Alignment(0, -0.9),
+              alignment: Alignment(0, 0.0),
               child: GestureDetector(
                 onTap: () {
                   onIconPressed();
@@ -174,14 +160,14 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                 child: ClipPath(
                   clipper: CustomMenuClipper(),
                   child: Container(
-                    width: 35,
+                    width: 36.4,
                     height: 110,
-                    color: Color(0xFF4CAF50),
+                    color: Colors.blue[900],
                     alignment: Alignment.centerLeft,
                     child: AnimatedIcon(
                       progress: _animationController.view,
                       icon: AnimatedIcons.menu_close,
-                      color: Color(0xFFFFFFFF),
+                      color: Colors.yellow,
                       size: 25,
                     ),
                   ),
@@ -201,7 +187,7 @@ class CustomMenuClipper extends CustomClipper<Path>{
   @override
   Path getClip(Size size){
     Paint paint = Paint();
-    paint.color = Colors.white;
+    paint.color = Colors.blue[900];
     final width = size.width;
     final height = size.height;
     Path path = Path();

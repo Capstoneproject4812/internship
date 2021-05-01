@@ -9,3 +9,4 @@ const TextStyle BodyText = TextStyle(
     fontSize: 19,
     color: Colors.white,
 );
+

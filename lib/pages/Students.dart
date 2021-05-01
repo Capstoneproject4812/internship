@@ -3,7 +3,7 @@ import 'package:ipvp/bloc/navigation_bloc/Navigations.dart';
 import 'package:ipvp/screens/Teacher-page.dart';
 import 'package:ipvp/widgets/AppBar.dart';
 
-class ReviewReport extends StatelessWidget with NavigationStates {
+class Students extends StatelessWidget with NavigationStates{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,11 +13,11 @@ class ReviewReport extends StatelessWidget with NavigationStates {
           clipper: Appbar(),
           child: Container(
             child: Padding(
-              padding: const EdgeInsets.only(left: 90, top: 100, bottom: 10),
+              padding: const EdgeInsets.only(left: 100, top: 100, bottom: 10),
               child: Row(
                 children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.only(right: 50),
+                    padding: const EdgeInsets.only(right: 65),
                     child: IconButton(icon:
                     Icon(
                       Icons.arrow_back_ios,
@@ -30,8 +30,8 @@ class ReviewReport extends StatelessWidget with NavigationStates {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 5),
-                    child: Text('Review Report',
+                    padding: const EdgeInsets.only(bottom: 0),
+                    child: Text('Students List',
                       style: TextStyle(
                         color: Colors.black87,
                         fontSize: 38,
@@ -42,7 +42,7 @@ class ReviewReport extends StatelessWidget with NavigationStates {
                 ],
               ),
             ),
-            color: Colors.pink,
+            color: Colors.cyan[300],
           ),
         ),
       ),
