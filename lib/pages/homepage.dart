@@ -55,7 +55,7 @@ class _HomepageState extends State<Homepage> {
             ),
 
             Padding(
-              padding: const EdgeInsets.only(top: 15),
+              padding: const EdgeInsets.only(bottom: 5,top: 10),
               child: Row(children: [
                 Icon(Icons.book_online_outlined,
                   color: Colors.white,
@@ -71,20 +71,23 @@ class _HomepageState extends State<Homepage> {
               ],
               ),
             ),
-            SizedBox(height: 50,),
-            Row(children: [
-              Icon(Icons.receipt,
-                color: Colors.white,
-                size: 15,),
-              SizedBox(width: 10,),
-              Text(company['details'],
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
+
+            Padding(
+              padding: const EdgeInsets.only(bottom: 50,top: 10),
+              child: Row(children: [
+                Icon(Icons.receipt,
                   color: Colors.white,
+                  size: 15,),
+                SizedBox(width: 10,),
+                Text(company['details'],
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white,
+                  ),
                 ),
+              ],
               ),
-            ],
             ),
             SizedBox(height: 20,),
             Row(
@@ -147,12 +150,12 @@ class _HomepageState extends State<Homepage> {
       return AlertDialog(title: Text('Delete ${company['name']}'),
         content: Text('Are you sure you want to delete?'),
         actions: [
-          FlatButton(
+          TextButton(
           onPressed:(){
           Navigator.pop(context);
         },
           child: Text('Cancel'),),
-          FlatButton(
+          TextButton(
             onPressed:(){
               reference
                   .child(company['key'])

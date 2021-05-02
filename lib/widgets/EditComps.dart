@@ -1,8 +1,8 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:ipvp/widgets/AppBar.dart';
+// ignore: must_be_immutable
 class EditComps extends StatefulWidget {
   String compKey;
   EditComps({this.compKey});
@@ -33,7 +33,7 @@ class _EditCompsState extends State<EditComps> {
           width: 200,
 
           decoration: BoxDecoration(
-            color: _typeSelected == title? Colors.yellow : Colors.pink[400],
+            color: _typeSelected == title? Colors.black : Colors.transparent,
             borderRadius: BorderRadius.circular(40),
           ),
 
@@ -41,7 +41,7 @@ class _EditCompsState extends State<EditComps> {
             child: Padding(
               padding: const EdgeInsets.only(left: 7.5),
               child: Text(title,style: TextStyle(fontSize: 23,
-                  color: Colors.black, fontWeight: FontWeight.bold),
+                  color: Colors.pink[300], fontWeight: FontWeight.bold),
               ),
             ),
           ),
@@ -113,7 +113,7 @@ class _EditCompsState extends State<EditComps> {
                       child: Icon(Icons.add_business,
                         color: Colors.pink[400],size: 30,),
                     ),
-                    fillColor: Colors.black26,
+                    fillColor: Colors.black,
                     filled: true,
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(40)
@@ -145,7 +145,7 @@ class _EditCompsState extends State<EditComps> {
                       color: Colors.pink[400],
                       ),
                     ),
-                    fillColor: Colors.black26,
+                    fillColor: Colors.black,
                     filled: true,
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(40)
@@ -183,9 +183,7 @@ class _EditCompsState extends State<EditComps> {
                 padding: EdgeInsets.only(left: 30, right: 30, bottom: 30),
                 child: Container(
                   height: 60,
-                  child: RaisedButton(
-                    elevation: 10,
-                    splashColor: Colors.yellow,
+                  child: ElevatedButton(
                     child: Text('Update Company',
                       style: TextStyle(
                         fontSize: 20,
@@ -193,13 +191,16 @@ class _EditCompsState extends State<EditComps> {
                         color: Colors.black,
                       ),
                     ),
-                    shape: RoundedRectangleBorder(
+                    style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(40),
+                    ),
+                    primary: Colors.pink[400],
+                    elevation: 10,
+                      onPrimary: Colors.yellow,
                     ),
                     onPressed: (){
                       saveComp();
                     },
-                    color: Colors.pink[400],
                   ),
                 ),
               ),

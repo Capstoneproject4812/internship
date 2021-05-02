@@ -1,56 +1,52 @@
 import 'package:expansion_card/expansion_card.dart';
 import 'package:flutter/material.dart';
-import 'package:ipvp/StudentList/List1.dart';
-import 'package:ipvp/StudentList/List2.dart';
-import 'package:ipvp/StudentList/List3.dart';
-import 'package:ipvp/bloc/navigation_bloc/Navigations.dart';
-import 'package:ipvp/screens/Teacher-page.dart';
+import 'package:ipvp/pages/Students.dart';
 import 'package:ipvp/widgets/AppBar.dart';
 
-class Students extends StatelessWidget with NavigationStates{
+class List2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
+        appBar: PreferredSize(
         preferredSize: Size.fromHeight(120),
-        child: ClipPath(
-          clipper: Appbar(),
-          child: Container(
-            child: Padding(
-              padding: const EdgeInsets.only(left: 100, top: 100, bottom: 10),
-              child: Row(
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(right: 100),
-                    child: IconButton(icon:
-                    Icon(
-                      Icons.arrow_back_ios,
-                      color: Colors.black87,
-                    ),
-                        iconSize: 30,
-                        onPressed: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => SideBarLayout()));
-                        }
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 0),
-                    child: Text('Class List',
-                      style: TextStyle(
-                        color: Colors.black87,
-                        fontSize: 38,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            color: Colors.cyan[300],
-          ),
-        ),
-      ),
-      backgroundColor: Colors.black ,
+    child: ClipPath(
+    clipper: Appbar(),
+    child: Container(
+    child: Padding(
+    padding: const EdgeInsets.only(left: 100, top: 100, bottom: 10),
+    child: Row(
+    children: <Widget>[
+    Padding(
+    padding: const EdgeInsets.only(right: 120),
+    child: IconButton(icon:
+    Icon(
+    Icons.arrow_back_ios,
+    color: Colors.black87,
+    ),
+    iconSize: 30,
+    onPressed: (){
+    Navigator.push(context, MaterialPageRoute(builder: (context) => Students()));
+    }
+    ),
+    ),
+    Padding(
+    padding: const EdgeInsets.only(bottom: 0),
+    child: Text('IT Engg.',
+    style: TextStyle(
+    color: Colors.black87,
+    fontSize: 38,
+    fontWeight: FontWeight.bold,
+    ),
+    ),
+    ),
+    ],
+    ),
+    ),
+    color: Colors.cyan[300],
+    ),
+    ),
+    ),
+      backgroundColor: Colors.black87,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -61,11 +57,11 @@ class Students extends StatelessWidget with NavigationStates{
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     SizedBox(width: 10),
-                    Text('Computer Engingg.',
+                    Text('IT5I-A',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 35,
-                        color: Colors.white,
+                        color: Colors.black87,
                       ),
                     ),
                   ],
@@ -74,9 +70,9 @@ class Students extends StatelessWidget with NavigationStates{
                   Padding(
                     padding: const EdgeInsets.only(top: 110, left: 200),
                     child: TextButton(onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => List1()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => null));
                     },
-                      child: Text('View Classes',
+                      child: Text('View Students',
                         style: TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.w600,
@@ -84,12 +80,15 @@ class Students extends StatelessWidget with NavigationStates{
                         ),
                       ),
                       style: TextButton.styleFrom(
-                        backgroundColor: Colors.black26,
+                        backgroundColor: Colors.transparent,
                       ),
                     ),
                   ),
                 ],
-                background: Image.network('https://images.unsplash.com/photo-1533134486753-c833f0ed4866?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmxhY2slMjBhYnN0cmFjdHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'),
+                background: Image(
+                  image: AssetImage('assets/A.jpg'),
+                  fit: BoxFit.fill,
+                ),
               ),
             ),
             Padding(
@@ -99,11 +98,11 @@ class Students extends StatelessWidget with NavigationStates{
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     SizedBox(width: 10),
-                    Text('IT Engineering',
+                    Text('IT5I-B',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 35,
-                        color: Colors.white,
+                        color: Colors.black87,
                       ),
                     ),
                   ],
@@ -112,9 +111,9 @@ class Students extends StatelessWidget with NavigationStates{
                   Padding(
                     padding: const EdgeInsets.only(top: 110, left: 200),
                     child: TextButton(onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => List2()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => null));
                     },
-                      child: Text('View Classes',
+                      child: Text('View Students',
                         style: TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.w600,
@@ -122,12 +121,15 @@ class Students extends StatelessWidget with NavigationStates{
                         ),
                       ),
                       style: TextButton.styleFrom(
-                        backgroundColor: Colors.black26,
+                        backgroundColor: Colors.transparent,
                       ),
                     ),
                   ),
                 ],
-                background: Image.network('https://images.unsplash.com/photo-1533134486753-c833f0ed4866?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmxhY2slMjBhYnN0cmFjdHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'),
+                background: Image(
+                  image: AssetImage('assets/B.jpg'),
+                  fit: BoxFit.fill,
+                ),
               ),
             ),
             Padding(
@@ -137,11 +139,11 @@ class Students extends StatelessWidget with NavigationStates{
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     SizedBox(width: 10),
-                    Text('Electronics Engg.',
+                    Text('IT5I-C',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 35,
-                        color: Colors.white,
+                        color: Colors.black87,
                       ),
                     ),
                   ],
@@ -150,9 +152,9 @@ class Students extends StatelessWidget with NavigationStates{
                   Padding(
                     padding: const EdgeInsets.only(top: 110, left: 200),
                     child: TextButton(onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => List3()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => null));
                     },
-                      child: Text('View Classes',
+                      child: Text('View Students',
                         style: TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.w600,
@@ -160,12 +162,14 @@ class Students extends StatelessWidget with NavigationStates{
                         ),
                       ),
                       style: TextButton.styleFrom(
-                        backgroundColor: Colors.black26,
+                        backgroundColor: Colors.transparent,
                       ),
                     ),
                   ),
                 ],
-                background: Image.network('https://images.unsplash.com/photo-1533134486753-c833f0ed4866?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmxhY2slMjBhYnN0cmFjdHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+                background: Image(
+                  image: AssetImage('assets/C.jpg'),
+                  fit: BoxFit.fill,
                 ),
               ),
             ),

@@ -1,7 +1,6 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:ipvp/widgets/AppBar.dart';
 class AddComps extends StatefulWidget {
   @override
@@ -29,7 +28,7 @@ class _AddCompsState extends State<AddComps> {
         width: 200,
 
         decoration: BoxDecoration(
-          color: _typeSelected == title? Colors.deepOrange[300] : Colors.blue[300],
+          color: _typeSelected == title? Colors.black : Colors.transparent,
           borderRadius: BorderRadius.circular(40),
         ),
 
@@ -37,7 +36,7 @@ class _AddCompsState extends State<AddComps> {
           child: Padding(
             padding: const EdgeInsets.only(left: 7.5),
             child: Text(title,style: TextStyle(fontSize: 23,
-            color: Colors.white, fontWeight: FontWeight.bold),
+            color: Colors.deepOrange, fontWeight: FontWeight.bold),
             ),
           ),
         ),
@@ -75,7 +74,7 @@ class _AddCompsState extends State<AddComps> {
                 ],
               ),
             ),
-            color: Colors.deepOrange[300],
+            color: Colors.deepOrange,
           ),
         ),
       ),
@@ -91,22 +90,22 @@ class _AddCompsState extends State<AddComps> {
                   controller: _compName,
                   decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.deepOrange[300]),
+                      borderSide: BorderSide(color: Colors.deepOrange),
                       borderRadius: BorderRadius.circular(30),
                     ),
                     labelText: 'Company Name*',
-                    labelStyle: TextStyle(fontSize: 20, color: Colors.deepOrange[300]),
+                    labelStyle: TextStyle(fontSize: 20, color: Colors.deepOrange),
                     hintText: 'Enter Company name',
                     hintStyle: TextStyle(
                       fontSize: 19,
-                      color: Colors.deepOrange[300],
+                      color: Colors.deepOrange,
                     ),
                     prefixIcon: Padding(
                       padding: const EdgeInsets.only(left: 20, right: 25),
                       child: Icon(Icons.add_business, size: 30,
-                      color: Colors.deepOrange[300],),
+                      color: Colors.deepOrange,),
                     ),
-                    fillColor: Colors.black26,
+                    fillColor: Colors.black,
                     filled: true,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(40)
@@ -121,19 +120,19 @@ class _AddCompsState extends State<AddComps> {
                   controller: _compDetails,
                   decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.deepOrange[300]),
+                      borderSide: BorderSide(color: Colors.deepOrange),
                       borderRadius: BorderRadius.circular(30),
                     ),
                     labelText: 'Details*',
-                    labelStyle: TextStyle(fontSize: 20, color: Colors.deepOrange[300]),
+                    labelStyle: TextStyle(fontSize: 20, color: Colors.deepOrange),
                     hintText: 'Enter Company Details',
                     hintStyle: TextStyle(
                       fontSize: 19,
-                      color: Colors.deepOrange[300]
+                      color: Colors.deepOrange
                     ),
                     prefixIcon: Padding(
                       padding: const EdgeInsets.only(left: 20,right:25),
-                      child: Icon(Icons.receipt_long_rounded, size: 30,color: Colors.deepOrange[300],),
+                      child: Icon(Icons.receipt_long_rounded, size: 30,color: Colors.deepOrange,),
                     ),
                     fillColor: Colors.black,
                     filled: true,
@@ -173,9 +172,7 @@ class _AddCompsState extends State<AddComps> {
                 padding: EdgeInsets.only(left: 30, right: 30, bottom: 30),
                 child: Container(
                   height: 60,
-                  child: RaisedButton(
-                    elevation: 10,
-                    splashColor: Colors.blue[300],
+                  child: ElevatedButton(
                     child: Text('Save Company',
                       style: TextStyle(
                         fontSize: 20,
@@ -183,13 +180,15 @@ class _AddCompsState extends State<AddComps> {
                         color: Colors.black,
                       ),
                     ),
-                    shape: RoundedRectangleBorder(
+                    style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(40),
+                    ),
+                    primary: Colors.deepOrange,
+                      elevation: 10,
                     ),
                     onPressed: (){
                       saveComp();
                     },
-                    color: Colors.deepOrange[300],
                   ),
                 ),
               ),
